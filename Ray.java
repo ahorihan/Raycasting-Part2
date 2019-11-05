@@ -60,7 +60,7 @@ public class Ray {
 				int newHeadX;
 				int newHeadY;
 				
-				if(t > 0 && t < 1 && u > 0)
+				if(t >= 0 && t <= 1 && u > 0) //delete the equals
 				{
 					newHeadX = (int)(((x1*y2-y1*x2)*(x3-x4)-(x1-x2)*(x3*y4-y3*x4))/denom);
 					newHeadY = (int)(((x1*y2-y1*x2)*(y3-y4)-(y1-y2)*(x3*y4-y3*x4))/denom);

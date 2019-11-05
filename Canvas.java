@@ -121,6 +121,8 @@ public class Canvas extends JPanel{
 			}
 			slices = s1;
 			repaint();
+			
+			System.out.println(centerAngle);
 		}
 	}
 	
