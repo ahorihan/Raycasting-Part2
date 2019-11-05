@@ -21,6 +21,11 @@ public class Ray {
 		minY = (int)head.getY();
 	}
 	
+	public double getDist()
+	{
+		return tail.distance(head);
+	}
+	
 	public void cast(List<Boundary> boundaries)
 	{
 		int x3 = (int)tail.getX();
