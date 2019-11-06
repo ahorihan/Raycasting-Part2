@@ -2,6 +2,7 @@ package RaycastingPart2;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JFrame;
@@ -78,8 +79,8 @@ public class Canvas extends JPanel{
 		frame.addKeyListener(new Handler(this));
 		
 		List<Boundary> lines = new ArrayList<>();		
-		//lines.add(new Boundary((int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random())));
-		//lines.add(new Boundary((int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random())));
+		lines.add(new Boundary((int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random())));
+		lines.add(new Boundary((int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random())));
 		//lines.add(new Boundary((int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random())));
 		//lines.add(new Boundary((int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random())));
 		//lines.add(new Boundary((int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random()), (int)(500*Math.random())));
@@ -87,7 +88,7 @@ public class Canvas extends JPanel{
 		lines.add(new Boundary(100, 100, 200, 100));
 		lines.add(new Boundary(100, 100, 100, 200));
 		lines.add(new Boundary(100, 200, 200, 200));
-		lines.add(new Boundary(200, 100, 200, 200));
+		//lines.add(new Boundary(200, 100, 200, 200));
 		
 		lines.add(new Boundary(0, 0, 0, 500));
 		lines.add(new Boundary(0, 0, 500, 0));
@@ -112,7 +113,7 @@ public class Canvas extends JPanel{
 			for(Ray r: rays)
 			{
 				int shadeValue = (int)(255*(1-(r.getDist()/1000)));
-				int heightValue = (int)(500*(1-(r.getDist()/1000))); //Play around with these values
+				int heightValue = (int)(500*(1-(r.getDist()/800))); //Play around with these values
 				if(shadeValue <= 255 && shadeValue >= 0)
 					s1.add(new Slice(index, shadeValue, heightValue));
 				else
@@ -122,8 +123,15 @@ public class Canvas extends JPanel{
 			slices = s1;
 			repaint();
 			
-			System.out.println(centerAngle);
+			System.out.println(getDirectionVector(10));
 		}
+	}
+	
+	public Point getDirectionVector(int mag)
+	{
+		double x = mag*Math.cos(centerAngle);
+		double y = mag*Math.sin(centerAngle);
+		return new Point((int)x, (int)y);
 	}
 	
 }

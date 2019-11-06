@@ -1,5 +1,6 @@
 package RaycastingPart2;
 
+import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.awt.event.MouseEvent;
@@ -43,10 +44,16 @@ public class Handler implements MouseMotionListener, KeyListener{
 		}
 		else if(arg0.getKeyCode() == KeyEvent.VK_W)
 		{
+			//Point directionVector = canvas.getDirectionVector(5);
+			//canvas.originX = canvas.originX + (int)directionVector.getX();
+			//canvas.originY = canvas.originY + (int)directionVector.getY();
 			canvas.originY-=3;
 		}
 		else if(arg0.getKeyCode() == KeyEvent.VK_S)
 		{
+			//Point directionVector = canvas.getDirectionVector(5);
+			//canvas.originX = canvas.originX - (int)directionVector.getX();
+			//canvas.originY = canvas.originY - (int)directionVector.getY();
 			canvas.originY+=3;
 		}
 		else if(arg0.getKeyCode() == KeyEvent.VK_O)
